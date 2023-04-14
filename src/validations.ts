@@ -2,22 +2,27 @@ import { Gender, HouseName, NewCharacterEntry } from "./types";
 
 const isString = (param: any): boolean => typeof param === "string";
 
-const isHouseName = (houseNameFromRequest: any): boolean => Object.values(HouseName).includes(houseNameFromRequest);
+export const isHouseName = (houseNameFromRequest: any): boolean =>
+  Object.values(HouseName).includes(houseNameFromRequest);
 
-const isGender = (genderFromRequest: any): boolean => Object.values(Gender).includes(genderFromRequest);
+const isGender = (genderFromRequest: any): boolean =>
+  Object.values(Gender).includes(genderFromRequest);
 
 const parseStringParams = (stringParam: any, paramName: string): string => {
-  if (!isString(stringParam)) throw new Error(`Incorrect or missing ${paramName}`);
+  if (!isString(stringParam))
+    throw new Error(`Incorrect or missing ${paramName}`);
   return stringParam;
 };
 
-const parseHouseName = (houseNameFromRequest: any): HouseName => {
-  if (!isHouseName(houseNameFromRequest)) throw new Error("Incorrect or missing house");
+export const parseHouseName = (houseNameFromRequest: any): HouseName => {
+  if (!isHouseName(houseNameFromRequest))
+    throw new Error("Incorrect or missing house");
   return houseNameFromRequest;
 };
 
 const parseGender = (genderFromRequest: any): Gender => {
-  if (!isGender(genderFromRequest)) throw new Error("Incorrect or missing gender");
+  if (!isGender(genderFromRequest))
+    throw new Error("Incorrect or missing gender");
   return genderFromRequest;
 };
 
